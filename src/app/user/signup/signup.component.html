@@ -1,0 +1,57 @@
+<html lang="en">
+
+    <!-- OTc2MjI1OWUyYzk1ZThlODBlMGY2NjEzMzA1ZmYwOTQyYmI1MTNjNTBlNmU4OGI1Yzk1MWYxODA5NDVmZWM0MDIzMTQ3N2NjYjM4ZWFiZjI5ZGZhY2NhNWJiN2FhNGI1MDVkNjFiMGM4MmViYWU4ZWZlZjVlNTNjN2MxODMzOGQ1MA== -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Chat Box Signup</title>
+
+</head>
+
+<body>
+    <form class="form-signin">
+        <div class="text-center mb-4">
+            <img class="mb-4" src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"
+                height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+            <p><code>Signup To Chat</code></p>
+        </div>
+
+        <div class="form-label-group">
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="firstName" placeholder="First Name" name="firstName" required="" autofocus="">
+            <label for="firstName">First name</label>
+        </div>
+        <div class="form-label-group">
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="lastName" placeholder="Last Name" name="lastName" required="" autofocus="">
+            <label for="lastName">Last name</label>
+        </div>
+       
+
+        <div class="form-label-group">
+            <input type="email" id="inputEmail" class="form-control" [(ngModel)]="email" name="email"  placeholder="Email address" required=""
+                autofocus="">
+            <label for="inputEmail">Email address</label>
+        </div>
+
+        <div class="form-label-group">
+            <input type="password" id="inputPassword" class="form-control" [(ngModel)]="password" name="Password" required="" autofocus="">
+            <label for="inputPassword">Password</label>
+        </div>
+
+        <div class="form-label-group">
+            <input type="text" class="form-control" id="apiKey" [(ngModel)]="apiKey" name="API Key" value="" required="" autofocus="">
+            <label for="apiKey">API Key</label>
+        </div>
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" (click)="signUp()" type="submit">Sign Up</button>
+        <p class="mt-5 mb-3 text-muted text-center">©2020 - 2021</p>
+    </form>
+
+
+</body>
+</html>

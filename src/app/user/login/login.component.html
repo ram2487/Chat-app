@@ -1,0 +1,41 @@
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Chat Box SngnIN</title>
+
+</head>
+
+<body>
+    <form class="form-signin">
+        <div class="text-center mb-4">
+            <img class="mb-4" src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"
+                height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Log In</h1>
+        </div>
+
+        <div class="form-label-group">
+            <input type="email" id="inputEmail" name="email" [(ngModel)]="email"  class="form-control" placeholder="Email address" required=""
+                autofocus="">
+            <label for="inputEmail">Email address</label>
+        </div>
+
+        <div class="form-label-group">
+            <input type="password" id="inputPassword" name="password" [(ngModel)]="password" class="form-control" placeholder="Password" required="">
+            <label for="inputPassword">Password</label>
+        </div>
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" (click)="login()" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted text-center">©2020 - 2021</p>
+    </form>
+
+
+</body>
+</html>

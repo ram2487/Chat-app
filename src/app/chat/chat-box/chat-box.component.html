@@ -1,0 +1,100 @@
+<html>
+  <body>
+    <div class="container">
+
+      <div class="row rounded-lg overflow-hidden shadow">
+        <!-- Users box-->
+        <div class="col-5 px-0">
+          <div class="bg-white">
+    
+            <div class="bg-gray px-4 py-2 bg-light">
+              <p class="h5 mb-0 py-1"> {{userInfo.firstName}} {{userInfo.lastName}}
+                <i class="online" *ngIf="disconnectedSocket == false"></i>
+              <i class="offline" *ngIf="disconnectedSocket == true"></i>
+              </p>
+              <button (click)="logout()" class="btn btn-info customButton">Logout</button>
+              <hr>
+              <p class="h5 mb-0 py-1">Online</p>
+            </div>
+    
+            <div class="messages-box">
+              <div [ngClass]="{'activeChat': user.chating == true}" *ngFor="let user of userList"  class="list-group rounded-0" >
+                <a (click)="userSelectedToChat(user.userId, user.name)" *ngIf="user.userId != userInfo.userId" class="list-group-item list-group-item-action list-group-item-light rounded-0">
+                  <div  class="media"><img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user" width="50" class="rounded-circle">
+                    <div class="media-body ml-4">
+                      <div  class="d-flex align-items-center justify-content-between mb-1">
+                        <h6 class="mb-0"> {{user.name}}</h6>
+                        <small class="small font-weight-bold">14 Dec</small>
+                      </div>
+                      <!-- <p class="font-italic text-muted mb-0 text-small">Lorem ipsum dolor sit amet, consectetur. incididunt ut labore.</p> -->
+                    </div>
+                  </div>
+                </a>
+           
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Chat Box-->
+        <div class="col-7 px-0" >
+          <div *ngIf="receiverName" class="chat-with">Chatting with {{receiverName}}</div>
+
+          <div #scrollMe [scrollTop]="(scrollToChatTop)?0:scrollMe.scrollHeight" 
+              class="chat-history px-4 py-5 chat-box" 
+              *ngIf="receiverName" >
+        
+               <div class="row justify-content-md-center" *ngIf="receiverName">
+                  <p  class="cursorPointer btn btn-secondary btn-sm" (click)="loadEarlierPageOfChat()">Load Previous Chat</p>
+                  <p class= "blockquote-footer "*ngIf="loadingPreviousChat == true">Loading</p>     
+               </div>
+               <div  *ngFor="let message of messageList">
+                      <!-- Sender Message-->
+                      <div class="media w-50 mb-3" 
+                      *ngIf="message.senderId != userInfo.userId">
+                          <div class="media-body ml-3">
+                            <div class="bg-light rounded py-2 px-3 mb-2">
+                              <p class="text-small mb-0 text-muted">
+                                {{message?.message}}
+                              </p>
+                            </div>
+                            <p class="small text-muted">{{message?.createdOn | date: 'medium' }}</p>
+                          </div>
+                      </div>
+              
+                      <!-- Reciever Message-->
+                      <div class="media w-50 ml-auto mb-3" 
+                      *ngIf="message.senderId == userInfo.userId">
+                          <div class="media-body">
+                            <div class="bg-primary rounded py-2 px-3 mb-2">
+                              <p class="text-small mb-0 text-white">
+                                {{message?.message }}
+                              </p>
+                            </div>
+                            <p class="small text-muted">{{message?.createdOn | date: 'medium' }}</p>
+                          </div>
+                      </div>
+                </div>
+          </div>
+    
+          <!-- Typing area -->
+          <form action="#" class="bg-light">
+            <div class="input-group">
+
+              <input type="text"name="message-to-send" 
+              [(ngModel)]="messageText" placeholder="Type a message" 
+              aria-describedby="button-addon2" 
+              class="form-control rounded-0 border-0 py-4 bg-light">
+
+              <div class="input-group-append">
+                <button type="button" class="btn btn-primary" (click)="sendMessage()">send</button>
+              </div>
+            </div>
+          </form>
+    
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
