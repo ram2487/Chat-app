@@ -1,6 +1,7 @@
 # ChatApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+This is the prortype to develope a simple chat app which can be a plugin integrated into the websites, projects, teams.
+I hope by contributing to this applicatin we can create a future application which solves the basic nessecity in a simpler way. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
 
